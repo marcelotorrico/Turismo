@@ -17,3 +17,7 @@ mtd_inicio_administrativo:
 mtd_administrativo_paquetes:
     path:     /administrativo/paquetes
     defaults: {_controller: MTDTurismoBundle:Paquetes:mostrarFormulario }
+    
+mtd_registrar_paquetes:
+    path:     /paquetes/crear
+    defaults: {_controller: MTDTurismoBundle:Paquetes:crearPaquete }

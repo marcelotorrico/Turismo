@@ -155,6 +155,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'MTD\\TurismoBundle\\Controller\\PaquetesController::mostrarFormularioAction',  '_route' => 'mtd_administrativo_paquetes',);
         }
 
+        // mtd_registrar_paquetes
+        if ($pathinfo === '/paquetes/crear') {
+            return array (  '_controller' => 'MTD\\TurismoBundle\\Controller\\PaquetesController::crearPaqueteAction',  '_route' => 'mtd_registrar_paquetes',);
+        }
+
         // homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

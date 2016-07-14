@@ -13,7 +13,6 @@ class PrincipalController extends Controller {
     public function mostrarAdministrativoAction(Request $request)
     {
         //$em = $this->getDoctrine()->getManager();
-        //$usuario = $em->getRepository('MTDTurismoBundle:Usuario')->find($id);
         $session = $request->getSession();
         $usuario = $session->get('usuario');
         if($usuario){

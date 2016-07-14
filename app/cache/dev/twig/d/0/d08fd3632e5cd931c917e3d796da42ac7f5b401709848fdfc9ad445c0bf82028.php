@@ -15,8 +15,8 @@ class __TwigTemplate_e1445fcbd7d47c5f64423da35179dd8070a12b5f1e14dba9ca6a9c370af
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_0f485f0000c3f1a27cc3eba00b6815268cf74a008103c8811b379df4bf91dac9 = $this->env->getExtension("native_profiler");
-        $__internal_0f485f0000c3f1a27cc3eba00b6815268cf74a008103c8811b379df4bf91dac9->enter($__internal_0f485f0000c3f1a27cc3eba00b6815268cf74a008103c8811b379df4bf91dac9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "MTDTurismoBundle:Principal:formularioPaquete.html.twig"));
+        $__internal_cabd2f29b6ac7938cf6459a5f31aa363652ed809fac48080814f743a8d7e61f4 = $this->env->getExtension("native_profiler");
+        $__internal_cabd2f29b6ac7938cf6459a5f31aa363652ed809fac48080814f743a8d7e61f4->enter($__internal_cabd2f29b6ac7938cf6459a5f31aa363652ed809fac48080814f743a8d7e61f4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "MTDTurismoBundle:Principal:formularioPaquete.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -318,7 +318,7 @@ class __TwigTemplate_e1445fcbd7d47c5f64423da35179dd8070a12b5f1e14dba9ca6a9c370af
          <div class=\"container\">
             <div class=\"row\">
                <div class=\"col-md-6 col-sm-12 title\">
-                  <h1>Registrar un nuevo Paquete Turistico</h1>
+                  <h1>Registrar Paquete Turistico</h1>
                </div>
                <div class=\"col-md-6 col-sm-12\">
                   <div class=\"b-crumbs pull-right\"><a href=\"#\">Home</a> <i class=\"arrow_carrot-right\"></i> Basic Page</div>
@@ -333,34 +333,70 @@ class __TwigTemplate_e1445fcbd7d47c5f64423da35179dd8070a12b5f1e14dba9ca6a9c370af
       <div class=\"container contact\">
          <div class=\"row\">
             <div class=\"col-md-9 col-sm-12\">
-               <form action=\"/\" class=\"validation-engine\">
-                  <div class=\"google-maps\">
-                     <iframe src=\"\" width=\"370\" height=\"150\"></iframe>
-                  </div>
-                  <h6>LEAVE A REPLY</h6>
+                ";
+        // line 248
+        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_start', array("attr" => array("class" => "validation-engine")));
+        echo "
+                    ";
+        // line 249
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
+        echo "
+                   <h6>IMAGEN DEL LUGAR</h6>
+
+                    ";
+        // line 252
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "imagen", array()), 'widget', array("full_name" => "files[]"));
+        echo "
+                    <br />
+                  <output id=\"list\"></output>
+                  <br>
+                  <h6>INFORMACION</h6>
                   <div class=\"row\">
                      <div class=\"col-sm-6 col-xs-12\">
                         <div class=\"required form-group\">
-                           <input type=\"text\" class=\"form-control validate[required]\" data-prompt-position=\"topLeft\" placeholder=\"Name *\">
+                           ";
+        // line 260
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nombre", array()), 'widget', array("attr" => array("placeholder" => "Nombre *", "class" => "form-control validate[required]", "data-prompt-position" => "topLeft")));
+        // line 261
+        echo " 
+                           
+                        </div>
+                         <div class=\"required form-group\">
+                             ";
+        // line 265
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "lugar", array()), 'widget', array("attr" => array("placeholder" => "Lugar *", "class" => "form-control validate[required]", "data-prompt-position" => "topLeft")));
+        // line 266
+        echo "
+                           
                         </div>
                         <div class=\"required form-group\">
-                           <input type=\"text\" class=\"form-control validate[required,custom[email]]\" data-prompt-position=\"topLeft\" placeholder=\"E-mail *\">
+                            ";
+        // line 270
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "precio", array()), 'widget', array("attr" => array("placeholder" => "Precio *", "class" => "form-control validate[required]", "data-prompt-position" => "topLeft")));
+        // line 271
+        echo "
+                           
                         </div>
-                        <div class=\"required form-group\">
-                           <input type=\"text\" class=\"form-control validate[required]\" data-prompt-position=\"topLeft\" placeholder=\"Enter your subgect *\">
-                        </div>
-                        <p>Your email adress will not published. Reguired fields are marked *</p>
+                        <p> * Campos Obligatorios</p>
                      </div>
                      <div class=\"col-sm-6 col-xs-12\">
                         <div class=\"required form-group\">
-                           <textarea class=\"form-control validate[required]\" data-prompt-position=\"topLeft\" rows=\"6\" placeholder=\"Your comment\"></textarea>
+                            ";
+        // line 278
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "descripcion", array()), 'widget', array("attr" => array("placeholder" => "Descripcion del paquete", "class" => "form-control validate[required]", "data-prompt-position" => "topLeft", "rows" => "6")));
+        // line 279
+        echo "
+                           
                         </div>
                         <div class=\"required form-group\">
-                           <button class=\"btn btn-sm btn-third-col col-xs-12\" type=\"submit\">POST COMMENT</button>
+                           <button type=\"submit\" class=\"btn btn-sm btn-third-col col-xs-12\" >REGISTRAR PAQUETE TURISTICO</button>
                         </div>
                      </div>
                   </div>
-               </form>
+               ";
+        // line 287
+        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
+        echo "
             </div>
          </div>
       </div>
@@ -769,53 +805,57 @@ class __TwigTemplate_e1445fcbd7d47c5f64423da35179dd8070a12b5f1e14dba9ca6a9c370af
 
    <!-- JS Libs -->
    <script src=\"";
-        // line 683
+        // line 695
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("public/js/jquery-1.11.0.min.js"), "html", null, true);
         echo "\"></script>
    <script src=\"";
-        // line 684
+        // line 696
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("public/js/jquery-ui-1.10.4.custom.min.js"), "html", null, true);
         echo "\"></script>
    <script src=\"";
-        // line 685
+        // line 697
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("public/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
    <script src=\"";
-        // line 686
+        // line 698
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("public/js/jquery.bxslider.min.js"), "html", null, true);
         echo "\"></script>
    <script src=\"";
-        // line 687
+        // line 699
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("public/js/jquery-accessibleMegaMenu.js"), "html", null, true);
         echo "\"></script>
    <script src=\"";
-        // line 688
+        // line 700
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("public/js/jquery.validationEngine.js"), "html", null, true);
         echo "\"></script>
    <script src=\"";
-        // line 689
+        // line 701
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("public/js/jquery.validationEngine-en.js"), "html", null, true);
         echo "\"></script>
    <script src=\"";
-        // line 690
+        // line 702
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("public/plugins/responsiveslides/responsiveslides.min.js"), "html", null, true);
         echo "\"></script>
    <script src=\"";
-        // line 691
+        // line 703
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("public/js/fastclick.js"), "html", null, true);
         echo "\"></script> <!-- Eliminating the 300ms click delay on mobile browsers -->
    <script src=\"";
-        // line 692
+        // line 704
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("public/js/plugins.js"), "html", null, true);
         echo "\"></script>
    <script src=\"";
-        // line 693
+        // line 705
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("public/js/scripts.js"), "html", null, true);
+        echo "\"></script>
+   <script src=\"";
+        // line 706
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("public/js/seleccionImagenes.js"), "html", null, true);
         echo "\"></script>
 </body>
 </html>";
         
-        $__internal_0f485f0000c3f1a27cc3eba00b6815268cf74a008103c8811b379df4bf91dac9->leave($__internal_0f485f0000c3f1a27cc3eba00b6815268cf74a008103c8811b379df4bf91dac9_prof);
+        $__internal_cabd2f29b6ac7938cf6459a5f31aa363652ed809fac48080814f743a8d7e61f4->leave($__internal_cabd2f29b6ac7938cf6459a5f31aa363652ed809fac48080814f743a8d7e61f4_prof);
 
     }
 
@@ -831,7 +871,7 @@ class __TwigTemplate_e1445fcbd7d47c5f64423da35179dd8070a12b5f1e14dba9ca6a9c370af
 
     public function getDebugInfo()
     {
-        return array (  813 => 693,  809 => 692,  805 => 691,  801 => 690,  797 => 689,  793 => 688,  789 => 687,  785 => 686,  781 => 685,  777 => 684,  773 => 683,  299 => 212,  291 => 207,  283 => 202,  264 => 186,  249 => 174,  234 => 162,  219 => 150,  198 => 132,  155 => 96,  85 => 28,  76 => 26,  72 => 25,  66 => 22,  62 => 21,  58 => 20,  54 => 19,  50 => 18,  46 => 17,  41 => 15,  37 => 14,  22 => 1,);
+        return array (  853 => 706,  849 => 705,  845 => 704,  841 => 703,  837 => 702,  833 => 701,  829 => 700,  825 => 699,  821 => 698,  817 => 697,  813 => 696,  809 => 695,  398 => 287,  388 => 279,  386 => 278,  377 => 271,  375 => 270,  369 => 266,  367 => 265,  361 => 261,  359 => 260,  348 => 252,  342 => 249,  338 => 248,  299 => 212,  291 => 207,  283 => 202,  264 => 186,  249 => 174,  234 => 162,  219 => 150,  198 => 132,  155 => 96,  85 => 28,  76 => 26,  72 => 25,  66 => 22,  62 => 21,  58 => 20,  54 => 19,  50 => 18,  46 => 17,  41 => 15,  37 => 14,  22 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -1066,7 +1106,7 @@ class __TwigTemplate_e1445fcbd7d47c5f64423da35179dd8070a12b5f1e14dba9ca6a9c370af
 /*          <div class="container">*/
 /*             <div class="row">*/
 /*                <div class="col-md-6 col-sm-12 title">*/
-/*                   <h1>Registrar un nuevo Paquete Turistico</h1>*/
+/*                   <h1>Registrar Paquete Turistico</h1>*/
 /*                </div>*/
 /*                <div class="col-md-6 col-sm-12">*/
 /*                   <div class="b-crumbs pull-right"><a href="#">Home</a> <i class="arrow_carrot-right"></i> Basic Page</div>*/
@@ -1081,34 +1121,46 @@ class __TwigTemplate_e1445fcbd7d47c5f64423da35179dd8070a12b5f1e14dba9ca6a9c370af
 /*       <div class="container contact">*/
 /*          <div class="row">*/
 /*             <div class="col-md-9 col-sm-12">*/
-/*                <form action="/" class="validation-engine">*/
-/*                   <div class="google-maps">*/
-/*                      <iframe src="" width="370" height="150"></iframe>*/
-/*                   </div>*/
-/*                   <h6>LEAVE A REPLY</h6>*/
+/*                 {{ form_start(form, {'attr': {'class': 'validation-engine'}}) }}*/
+/*                     {{form_errors(form)}}*/
+/*                    <h6>IMAGEN DEL LUGAR</h6>*/
+/* */
+/*                     {{ form_widget(form.imagen, { 'full_name': 'files[]' }) }}*/
+/*                     <br />*/
+/*                   <output id="list"></output>*/
+/*                   <br>*/
+/*                   <h6>INFORMACION</h6>*/
 /*                   <div class="row">*/
 /*                      <div class="col-sm-6 col-xs-12">*/
 /*                         <div class="required form-group">*/
-/*                            <input type="text" class="form-control validate[required]" data-prompt-position="topLeft" placeholder="Name *">*/
+/*                            {{ form_widget(form.nombre, { 'attr': {'placeholder': 'Nombre *', 'class': 'form-control validate[required]',*/
+/*                                                                  'data-prompt-position': 'topLeft' } }) }} */
+/*                            */
+/*                         </div>*/
+/*                          <div class="required form-group">*/
+/*                              {{ form_widget(form.lugar, { 'attr': {'placeholder': 'Lugar *', 'class': 'form-control validate[required]',*/
+/*                                                                  'data-prompt-position': 'topLeft' } }) }}*/
+/*                            */
 /*                         </div>*/
 /*                         <div class="required form-group">*/
-/*                            <input type="text" class="form-control validate[required,custom[email]]" data-prompt-position="topLeft" placeholder="E-mail *">*/
+/*                             {{ form_widget(form.precio, { 'attr': {'placeholder': 'Precio *', 'class': 'form-control validate[required]',*/
+/*                                                                  'data-prompt-position': 'topLeft' } }) }}*/
+/*                            */
 /*                         </div>*/
-/*                         <div class="required form-group">*/
-/*                            <input type="text" class="form-control validate[required]" data-prompt-position="topLeft" placeholder="Enter your subgect *">*/
-/*                         </div>*/
-/*                         <p>Your email adress will not published. Reguired fields are marked *</p>*/
+/*                         <p> * Campos Obligatorios</p>*/
 /*                      </div>*/
 /*                      <div class="col-sm-6 col-xs-12">*/
 /*                         <div class="required form-group">*/
-/*                            <textarea class="form-control validate[required]" data-prompt-position="topLeft" rows="6" placeholder="Your comment"></textarea>*/
+/*                             {{ form_widget(form.descripcion, { 'attr': {'placeholder': 'Descripcion del paquete', 'class': 'form-control validate[required]',*/
+/*                                                                  'data-prompt-position': 'topLeft', 'rows': '6' } }) }}*/
+/*                            */
 /*                         </div>*/
 /*                         <div class="required form-group">*/
-/*                            <button class="btn btn-sm btn-third-col col-xs-12" type="submit">POST COMMENT</button>*/
+/*                            <button type="submit" class="btn btn-sm btn-third-col col-xs-12" >REGISTRAR PAQUETE TURISTICO</button>*/
 /*                         </div>*/
 /*                      </div>*/
 /*                   </div>*/
-/*                </form>*/
+/*                {{form_end(form) }}*/
 /*             </div>*/
 /*          </div>*/
 /*       </div>*/
@@ -1527,5 +1579,6 @@ class __TwigTemplate_e1445fcbd7d47c5f64423da35179dd8070a12b5f1e14dba9ca6a9c370af
 /*    <script src="{{ asset('public/js/fastclick.js') }}"></script> <!-- Eliminating the 300ms click delay on mobile browsers -->*/
 /*    <script src="{{ asset('public/js/plugins.js') }}"></script>*/
 /*    <script src="{{ asset('public/js/scripts.js') }}"></script>*/
+/*    <script src="{{ asset('public/js/seleccionImagenes.js') }}"></script>*/
 /* </body>*/
 /* </html>*/

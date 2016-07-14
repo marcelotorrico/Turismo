@@ -69,6 +69,45 @@ class Usuario
      * @ORM\Column(name="activo", type="boolean")
      */
     private $activo;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Paquete", mappedBy="usuario")
+     */
+    private $paquete;
+    public function __construct()
+    {
+        $this->paquete = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    /**
+     * Add paquete
+     *
+     * @param \MTD\TurismoBundle\Entity\Paquete $paquete
+     *
+     * @return Usuario
+     */
+    public function addPaquete(\MTD\TurismoBundle\Entity\Paquete $paquete)
+    {
+        $this->paquete[] = $paquete;
+        return $this;
+    }
+    /**
+     * Remove paquete
+     *
+     * @param \MTD\TurismoBundle\Entity\Paquete $paquete
+     */
+    public function removePaquete(\MTD\TurismoBundle\Entity\Paquete $paquete)
+    {
+        $this->paquete->removeElement($paquete);
+    }
+    /**
+     * Get paquete
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPaquete()
+    {
+        return $this->paquete;
+    }
 
     /**
      * @ORM\ManyToOne(targetEntity="Tipo", inversedBy="usuario")

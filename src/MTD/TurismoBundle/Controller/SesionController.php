@@ -22,7 +22,7 @@ class SesionController extends Controller {
             $tipo = $usuario->getTipo()->getNombre();
             $session->set('usuario', $usuario);
             $session->set('tipo', $tipo);
-            $id = $usuario->getId();
+            
             return $this->redirect($this->generateUrl('mtd_inicio_administrativo'));
         }else{
             $session->invalidate();

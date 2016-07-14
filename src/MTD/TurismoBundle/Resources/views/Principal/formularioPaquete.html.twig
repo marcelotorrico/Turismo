@@ -230,7 +230,7 @@
          <div class="container">
             <div class="row">
                <div class="col-md-6 col-sm-12 title">
-                  <h1>Registrar un nuevo Paquete Turistico</h1>
+                  <h1>Registrar Paquete Turistico</h1>
                </div>
                <div class="col-md-6 col-sm-12">
                   <div class="b-crumbs pull-right"><a href="#">Home</a> <i class="arrow_carrot-right"></i> Basic Page</div>
@@ -245,34 +245,46 @@
       <div class="container contact">
          <div class="row">
             <div class="col-md-9 col-sm-12">
-               <form action="/" class="validation-engine">
-                  <div class="google-maps">
-                     <iframe src="" width="370" height="150"></iframe>
-                  </div>
-                  <h6>LEAVE A REPLY</h6>
+                {{ form_start(form, {'attr': {'class': 'validation-engine'}}) }}
+                    {{form_errors(form)}}
+                   <h6>IMAGEN DEL LUGAR</h6>
+
+                    {{ form_widget(form.imagen, { 'full_name': 'files[]' }) }}
+                    <br />
+                  <output id="list"></output>
+                  <br>
+                  <h6>INFORMACION</h6>
                   <div class="row">
                      <div class="col-sm-6 col-xs-12">
                         <div class="required form-group">
-                           <input type="text" class="form-control validate[required]" data-prompt-position="topLeft" placeholder="Name *">
+                           {{ form_widget(form.nombre, { 'attr': {'placeholder': 'Nombre *', 'class': 'form-control validate[required]',
+                                                                 'data-prompt-position': 'topLeft' } }) }} 
+                           
+                        </div>
+                         <div class="required form-group">
+                             {{ form_widget(form.lugar, { 'attr': {'placeholder': 'Lugar *', 'class': 'form-control validate[required]',
+                                                                 'data-prompt-position': 'topLeft' } }) }}
+                           
                         </div>
                         <div class="required form-group">
-                           <input type="text" class="form-control validate[required,custom[email]]" data-prompt-position="topLeft" placeholder="E-mail *">
+                            {{ form_widget(form.precio, { 'attr': {'placeholder': 'Precio *', 'class': 'form-control validate[required]',
+                                                                 'data-prompt-position': 'topLeft' } }) }}
+                           
                         </div>
-                        <div class="required form-group">
-                           <input type="text" class="form-control validate[required]" data-prompt-position="topLeft" placeholder="Enter your subgect *">
-                        </div>
-                        <p>Your email adress will not published. Reguired fields are marked *</p>
+                        <p> * Campos Obligatorios</p>
                      </div>
                      <div class="col-sm-6 col-xs-12">
                         <div class="required form-group">
-                           <textarea class="form-control validate[required]" data-prompt-position="topLeft" rows="6" placeholder="Your comment"></textarea>
+                            {{ form_widget(form.descripcion, { 'attr': {'placeholder': 'Descripcion del paquete', 'class': 'form-control validate[required]',
+                                                                 'data-prompt-position': 'topLeft', 'rows': '6' } }) }}
+                           
                         </div>
                         <div class="required form-group">
-                           <button class="btn btn-sm btn-third-col col-xs-12" type="submit">POST COMMENT</button>
+                           <button type="submit" class="btn btn-sm btn-third-col col-xs-12" >REGISTRAR PAQUETE TURISTICO</button>
                         </div>
                      </div>
                   </div>
-               </form>
+               {{form_end(form) }}
             </div>
          </div>
       </div>
@@ -691,5 +703,6 @@
    <script src="{{ asset('public/js/fastclick.js') }}"></script> <!-- Eliminating the 300ms click delay on mobile browsers -->
    <script src="{{ asset('public/js/plugins.js') }}"></script>
    <script src="{{ asset('public/js/scripts.js') }}"></script>
+   <script src="{{ asset('public/js/seleccionImagenes.js') }}"></script>
 </body>
 </html>
