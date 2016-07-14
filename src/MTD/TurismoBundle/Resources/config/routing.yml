@@ -1,0 +1,19 @@
+mtd_turismo_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: MTDTurismoBundle:Default:index }
+
+mtd_inicio:
+    path:     /inicio
+    defaults: {_controller: MTDTurismoBundle:Principal:mostrarPrincipal }
+    
+mtd_inicio_sesion:
+    path:     /inicioSesion
+    defaults: {_controller: MTDTurismoBundle:Sesion:validarSesion }
+    
+mtd_inicio_administrativo:
+    path:     /inicio/administrativo
+    defaults: {_controller: MTDTurismoBundle:Principal:mostrarAdministrativo }
+    
+mtd_administrativo_paquetes:
+    path:     /administrativo/paquetes
+    defaults: {_controller: MTDTurismoBundle:Paquetes:mostrarFormulario }
