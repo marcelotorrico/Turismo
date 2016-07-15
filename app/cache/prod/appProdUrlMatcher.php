@@ -32,6 +32,42 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'mtd_turismo_homepage')), array (  '_controller' => 'MTD\\TurismoBundle\\Controller\\DefaultController::indexAction',));
         }
 
+        if (0 === strpos($pathinfo, '/inicio')) {
+            // mtd_inicio
+            if ($pathinfo === '/inicio') {
+                return array (  '_controller' => 'MTD\\TurismoBundle\\Controller\\PrincipalController::mostrarPrincipalAction',  '_route' => 'mtd_inicio',);
+            }
+
+            // mtd_inicio_sesion
+            if ($pathinfo === '/inicioSesion') {
+                return array (  '_controller' => 'MTD\\TurismoBundle\\Controller\\SesionController::validarSesionAction',  '_route' => 'mtd_inicio_sesion',);
+            }
+
+            // mtd_inicio_administrativo
+            if ($pathinfo === '/inicio/administrativo') {
+                return array (  '_controller' => 'MTD\\TurismoBundle\\Controller\\PrincipalController::mostrarAdministrativoAction',  '_route' => 'mtd_inicio_administrativo',);
+            }
+
+        }
+
+        // mtd_administrativo_paquetes
+        if ($pathinfo === '/administrativo/paquetes') {
+            return array (  '_controller' => 'MTD\\TurismoBundle\\Controller\\PaquetesController::mostrarFormularioAction',  '_route' => 'mtd_administrativo_paquetes',);
+        }
+
+        if (0 === strpos($pathinfo, '/paquetes')) {
+            // mtd_registrar_paquetes
+            if ($pathinfo === '/paquetes/crear') {
+                return array (  '_controller' => 'MTD\\TurismoBundle\\Controller\\PaquetesController::crearPaqueteAction',  '_route' => 'mtd_registrar_paquetes',);
+            }
+
+            // mtd_paquetes_principal
+            if (0 === strpos($pathinfo, '/paquetes/principal') && preg_match('#^/paquetes/principal/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'mtd_paquetes_principal')), array (  '_controller' => 'MTD\\TurismoBundle\\Controller\\PaquetesController::mostrarPaqueteAction',));
+            }
+
+        }
+
         // homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

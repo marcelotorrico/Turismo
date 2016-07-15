@@ -21,3 +21,7 @@ mtd_administrativo_paquetes:
 mtd_registrar_paquetes:
     path:     /paquetes/crear
     defaults: {_controller: MTDTurismoBundle:Paquetes:crearPaquete }
+    
+mtd_paquetes_principal:
+    path:     /paquetes/principal/{id}
+    defaults: {_controller: MTDTurismoBundle:Paquetes:mostrarPaquete }

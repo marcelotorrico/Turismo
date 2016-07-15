@@ -155,9 +155,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'MTD\\TurismoBundle\\Controller\\PaquetesController::mostrarFormularioAction',  '_route' => 'mtd_administrativo_paquetes',);
         }
 
-        // mtd_registrar_paquetes
-        if ($pathinfo === '/paquetes/crear') {
-            return array (  '_controller' => 'MTD\\TurismoBundle\\Controller\\PaquetesController::crearPaqueteAction',  '_route' => 'mtd_registrar_paquetes',);
+        if (0 === strpos($pathinfo, '/paquetes')) {
+            // mtd_registrar_paquetes
+            if ($pathinfo === '/paquetes/crear') {
+                return array (  '_controller' => 'MTD\\TurismoBundle\\Controller\\PaquetesController::crearPaqueteAction',  '_route' => 'mtd_registrar_paquetes',);
+            }
+
+            // mtd_paquetes_principal
+            if (0 === strpos($pathinfo, '/paquetes/principal') && preg_match('#^/paquetes/principal/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'mtd_paquetes_principal')), array (  '_controller' => 'MTD\\TurismoBundle\\Controller\\PaquetesController::mostrarPaqueteAction',));
+            }
+
         }
 
         // homepage

@@ -15,7 +15,7 @@ class PaqueteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('imagen', 'file', array('label' => 'Brochure (PDF file)'))
+            ->add('imagen', 'file', array('label' => 'Brochure (JPEG file)'))
             ->add('nombre')
             ->add('lugar')
             ->add('precio')

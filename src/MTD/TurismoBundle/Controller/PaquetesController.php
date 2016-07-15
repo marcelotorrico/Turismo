@@ -29,18 +29,19 @@ class PaquetesController extends Controller {
                     'notice',
                     'El paquete fue agregado correctamente'
                 );
-
+                //f*
                 $imagen = $paquete->getImagen();
                 $nombreArchivo = md5(uniqid()).'.'.$imagen->guessExtension();
                 $documentoDir = $this->container->getParameter('kernel.root_dir').'/../web/documentosEmpleado';
                 $imagen->move($documentoDir, $nombreArchivo);
-                $paquete->setRuta($nombreArchivo);
+                $paquete->setImagen($nombreArchivo);
                 $paquete->setUsuario($usuario);
                 $em->persist($paquete);
                 $usuario->addPaquete($paquete);
                 $em->persist($usuario);
                 $em->flush();
-                return $this->render('MTDTurismoBundle:Principal:formularioPaquete.html.twig', array('usuario' => $usuario, 'tipo'=>$tipo));
+                $idPaquete = $paquete->getId();
+                return $this->redirect($this->generateUrl('mtd_paquetes_principal', array('id'=> $idPaquete)));
             }
             return $this->render('MTDTurismoBundle:Principal:formularioPaquete.html.twig', array("form"=>$form->createView(), 'usuario' => $usuario, 'tipo'=>$tipo));
         }else{
@@ -52,71 +53,17 @@ class PaquetesController extends Controller {
         }
         
     }
-    /*public function mostrarFormularioAction(Request $request)
-    {
-        $session = $request->getSession();
-        $usuario = $session->get('usuario');
-        if($usuario){
-            $tipo = $session->get('tipo');
-            return $this->render('MTDTurismoBundle:Principal:formularioPaquete.html.twig', array('usuario' => $usuario, 'tipo'=>$tipo));
-        }else{
-            $this->addFlash(
-                'notice',
-                'Inicie Sesion'
-            );
-            return $this->render('MTDTurismoBundle:Principal:principal.html.twig');
-        }
-        
-    }*/
     
-    public function crearPaqueteAction(Request $request)
+    public function mostrarPaqueteAction(Request $request, $id)
     {
         $session = $request->getSession();
         $usuario = $session->get('usuario');
-        $em = $this->getDoctrine()->getManager();
         if($usuario){
-            $id = $usuario->getId();
-            $usuario = $em->getRepository('MTDTurismoBundle:Usuario')->find($id);
-            $tipo = $id = $usuario->getTipo();
             $em = $this->getDoctrine()->getManager();
-            $paquete = new Paquete();
-            
-            $imagen = $this->get('request')->request->get('files')->getData();
-            $nombre = $this->get('request')->request->get('nombre');
-            $lugar = $this->get('request')->request->get('lugar');
-            $precio = $this->get('request')->request->get('precio');
-            $descripcion = $this->get('request')->request->get('descripcion');
-            
-            $nombreArchivo = md5(uniqid()).'.'.$imagen->guessExtension();
-            $documentoDir = $this->container->getParameter('kernel.root_dir').'/../web/imagenes';
-            $imagen->move($documentoDir, $nombreArchivo);
-
-            
-            $paquete->setImagen($nombreArchivo);
-            $paquete->setNombre($nombre);
-            $paquete->setLugar($lugar);
-            $paquete->setPrecio($precio);
-            $paquete->setDescripcion($descripcion);
-            $paquete->setUsuario($usuario);
-            $em->persist($paquete);
-            
-            $em->persist($usuario);
-            
-            $usuario->addPaquete($paquete);
-            
-            $em->flush();
-            $this->addFlash(
-                'notice',
-                'El paquete fue agregado correctamente'
-            );
-            return $this->render('MTDTurismoBundle:Principal:formularioPaquete.html.twig', array('usuario' => $usuario, 'tipo'=>$tipo));
-        }else{
-            $this->addFlash(
-                'notice',
-                'Inicie Sesion'
-            );
-            return $this->render('MTDTurismoBundle:Principal:principal.html.twig');
+            $paquete = $em->getRepository('MTDTurismoBundle:Paquete')->find($id);
+            $tipo = $session->get('tipo');
+            return $this->render('MTDTurismoBundle:Principal:paqueteTuristico.html.twig', array('paquete'=> $paquete, 'usuario' => $usuario, 'tipo'=>$tipo));
         }
-        
+
     }
 }

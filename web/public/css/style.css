@@ -2121,7 +2121,7 @@ blockquote.blog-quote span { font: 14px HelveticaNeue, Arial, Helvetica, sans-se
 .size-blocks .size input:checked + label { border-width: 2px; line-height: 30px; }
 
 .product-count { margin-right: 38px; margin-bottom: 13px; white-space: nowrap; }
-.product-count > *, .product-count input.form-control:disabled { display: inline-block; width: 46px; height: 44px; font: 23px/42px "Open Sans", sans-serif; padding: 0; background-color: #fff; border: 1px solid #e1e3e6; vertical-align: middle; text-indent: 0; text-align: center; }
+.product-count > *, .product-count input.form-control { display: inline-block; width: 46px; height: 44px; font: 23px/42px "Open Sans", sans-serif; padding: 0; background-color: #fff; border: 1px solid #e1e3e6; vertical-align: middle; text-indent: 0; text-align: center; }
 .product-count input.form-control:disabled { margin-left: 5px; margin-right: 5px; cursor: default; color: #212224; }
 .product-count .btn:hover { color: #212224; }
 .product-count .btn:focus:not(:hover) { background: none; border-color: #e1e3e6; }

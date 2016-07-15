@@ -15,8 +15,8 @@ class __TwigTemplate_e1445fcbd7d47c5f64423da35179dd8070a12b5f1e14dba9ca6a9c370af
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_cabd2f29b6ac7938cf6459a5f31aa363652ed809fac48080814f743a8d7e61f4 = $this->env->getExtension("native_profiler");
-        $__internal_cabd2f29b6ac7938cf6459a5f31aa363652ed809fac48080814f743a8d7e61f4->enter($__internal_cabd2f29b6ac7938cf6459a5f31aa363652ed809fac48080814f743a8d7e61f4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "MTDTurismoBundle:Principal:formularioPaquete.html.twig"));
+        $__internal_298e0e30e0b35048de6be36072180bbb0af4271f46eca76a2982f71987ae8a63 = $this->env->getExtension("native_profiler");
+        $__internal_298e0e30e0b35048de6be36072180bbb0af4271f46eca76a2982f71987ae8a63->enter($__internal_298e0e30e0b35048de6be36072180bbb0af4271f46eca76a2982f71987ae8a63_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "MTDTurismoBundle:Principal:formularioPaquete.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -345,7 +345,7 @@ class __TwigTemplate_e1445fcbd7d47c5f64423da35179dd8070a12b5f1e14dba9ca6a9c370af
 
                     ";
         // line 252
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "imagen", array()), 'widget', array("full_name" => "files[]"));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "imagen", array()), 'widget');
         echo "
                     <br />
                   <output id=\"list\"></output>
@@ -855,7 +855,7 @@ class __TwigTemplate_e1445fcbd7d47c5f64423da35179dd8070a12b5f1e14dba9ca6a9c370af
 </body>
 </html>";
         
-        $__internal_cabd2f29b6ac7938cf6459a5f31aa363652ed809fac48080814f743a8d7e61f4->leave($__internal_cabd2f29b6ac7938cf6459a5f31aa363652ed809fac48080814f743a8d7e61f4_prof);
+        $__internal_298e0e30e0b35048de6be36072180bbb0af4271f46eca76a2982f71987ae8a63->leave($__internal_298e0e30e0b35048de6be36072180bbb0af4271f46eca76a2982f71987ae8a63_prof);
 
     }
 
@@ -1125,7 +1125,7 @@ class __TwigTemplate_e1445fcbd7d47c5f64423da35179dd8070a12b5f1e14dba9ca6a9c370af
 /*                     {{form_errors(form)}}*/
 /*                    <h6>IMAGEN DEL LUGAR</h6>*/
 /* */
-/*                     {{ form_widget(form.imagen, { 'full_name': 'files[]' }) }}*/
+/*                     {{ form_widget(form.imagen) }}*/
 /*                     <br />*/
 /*                   <output id="list"></output>*/
 /*                   <br>*/
